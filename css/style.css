@@ -1,0 +1,384 @@
+html {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    font-size: 12px;
+    font-family: 'League Spartan', sans-serif;
+    --dark-gray-color: #a1a1a1;
+    --black-color: #000000;
+    --white-color: #ffffff;
+    --very-dark-gray-color: #454545;
+}
+
+*,
+*::after,
+*::before {
+    box-sizing: inherit;
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+}
+
+header,
+main {
+    width: 100%;
+    overflow: hidden;
+}
+
+section {
+    width: 100%;
+}
+
+
+header {
+    position: absolute;
+    top: 5%;
+    z-index: 990;
+    width: 100%;
+    height: 5vh;
+}
+
+nav {
+    position: relative;
+    display: flex;
+    width: 100%;
+}
+
+nav .menu-hamburguer {
+    position: absolute;
+    left: 5%;
+}
+
+nav .logo {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0%);
+}
+
+.menu-tabs {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 20vh;
+    background-color: var(--white-color);
+    padding: 0 5%;
+    transform: translate(100%, 0);
+    transition: all 2s ease-in-out;
+}
+
+.menu-tabs-contain {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transform: translate(0, 400%);
+
+}
+
+.menu-tabs-contain .links {
+    display: flex;
+    gap: 2rem;
+}
+
+.menu-tabs-contain .links a {
+    text-decoration: none;
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: var(--black-color);
+}
+
+.filter {
+    position: fixed;
+    z-index: -1;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: #00000050;
+    transform: translate(100%, 0);
+    transition: all 1s ease-in-out;
+}
+
+.show-filter {
+    transform: translate(0%, 0%);
+}
+
+.show-menu {
+    transform: translate(0%, 0);
+
+}
+
+
+.hero-image {
+    position: relative;
+    width: 100%;
+    line-height: 0;
+}
+
+picture img {
+    width: 100%;
+}
+
+.buttons {
+    position: absolute;
+    display: flex;
+    right: 0;
+    bottom: 0;
+    z-index: 99;
+}
+
+.buttons img {
+    background-color: var(--black-color);
+}
+
+.button-right, .button-left {
+    padding: 1.5rem;
+}
+
+.hero-text {
+    padding: 10% 5%;
+}
+
+.hero-text .text {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+}
+
+.hero-text .text p:nth-child(1) {
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.hero-text .text p:nth-child(2) {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    color: var(--dark-gray-color);
+}
+
+.button-shop {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.button-shop span {
+    margin: 2% 0;
+    font-size: 1.5rem;
+    letter-spacing: 0.8rem;
+    text-transform: uppercase;
+}
+
+/* .image-text-bottom {
+    width: 100%;
+} */
+
+.first-image-bottom {
+    width: 100%;
+}
+
+.text-bottom {
+    padding: 10% 5%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.text-bottom p:nth-child(1) {
+    font-size: 1.25rem;
+    font-weight: bold;
+    letter-spacing: 0.5rem;
+    text-transform: uppercase;
+}
+
+.text-bottom p:nth-child(2) {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    color: var(--dark-gray-color);
+}
+
+.second-image-bottom {
+    width: 100%;
+}
+
+@media screen and (min-width:30em) {
+
+    /* Activate states */
+    .links a {
+        width: 100%;
+        position: relative;
+    }
+
+    .links a:hover::before {
+        content: "";
+        position: absolute;
+        left: 50%;
+        bottom: -60%;
+        width: 60%;
+        height: 0.3vh;
+        background-color: var(--white-color);
+        transform: translate(-50%, 0%);
+    }
+
+    .buttons img:hover {
+        cursor: pointer;
+        opacity: 0.75;
+    }
+
+    .button-shop:hover {
+        cursor: pointer;
+        filter: invert(81%) sepia(0%) saturate(53%) hue-rotate(172deg) brightness(80%) contrast(90%);
+    }
+
+    /* Activate states */
+
+    nav {
+        padding-left: 5%;
+        align-items: center;
+        gap: 4vw;
+    }
+
+    nav .menu-hamburguer {
+        display: none;
+
+    }
+
+    nav .logo {
+        position: static;
+        transform: none;
+    }
+
+    .menu-tabs {
+        position: static;
+        width: auto;
+        height: auto;
+        padding: 0;
+        background-color: transparent;
+        transform: none;
+        transition: none;
+    }
+
+    .menu-tabs-contain {
+        justify-content: flex-start;
+        transform: none;
+    }
+
+    .menu-tabs-contain .links {
+        gap: 2vw;
+    }
+
+    .menu-close {
+        display: none;
+    }
+
+    .menu-tabs-contain .links a {
+        font-size: 1.1vw;
+        color: var(--white-color);
+    }
+
+    section {
+        display: grid;
+        grid-template-areas:
+            "her-img her-img her-img her-img her-img her-img her-txt her-txt her-txt her-txt"
+            "her-img her-img her-img her-img her-img her-img her-txt her-txt her-txt her-txt"
+            "her-img her-img her-img her-img her-img her-img her-txt her-txt her-txt her-txt"
+            "her-img her-img her-img her-img her-img her-img her-txt her-txt her-txt her-txt"
+            "img1 img1 img1 txt1 txt1 txt1 txt1 img2 img2 img2"
+            "img1 img1 img1 txt1 txt1 txt1 txt1 img2 img2 img2"
+        ;
+    }
+
+    .hero-image {
+        grid-area: her-img;
+    }
+
+    .hero-text {
+        grid-area: her-txt;
+    }
+
+    .first-image-bottom {
+        width: 100%;
+        grid-area: img1;
+    }
+
+    .text-bottom {
+        width: 100%;
+        grid-area: txt1;
+    }
+
+    .second-image-bottom {
+        width: 100%;
+        grid-area: img2;
+    }
+
+    .first-image-bottom img {
+        width: 30vw;
+        height: 100%;
+    }
+
+
+    .second-image-bottom img {
+        width: 30vw;
+        height: 100%;
+    }
+
+
+    .buttons {
+        transform: translate(100%, 0%);
+    }
+
+    .button-right, .button-left {
+        padding: 2vw;
+    }
+
+    .hero-text {
+        padding: 0vw 6.5vw;
+        display: flex;
+        align-items: center;
+    }
+
+
+
+    .hero-text .text p:nth-child(1) {
+        font-size: 3vw;
+        font-weight: bold;
+    }
+
+    .hero-text .text p:nth-child(2) {
+        font-size: 1vw;
+        line-height: 1.5vw;
+        color: var(--dark-gray-color);
+    }
+
+    .button-shop span {
+        margin: 2% 0;
+        font-size: 1.2vw;
+        font-weight: bold;
+        letter-spacing: 0.8vw;
+        text-transform: uppercase;
+    }
+
+    .text-bottom {
+        padding: 0 3vw;
+        justify-content: center;
+    }
+
+    .text-bottom p:nth-child(1) {
+        font-size: 1.2vw;
+        letter-spacing: 0.5vw;
+    }
+
+    .text-bottom p:nth-child(2) {
+        font-size: 1.1vw;
+        line-height: 1.5vw;
+    }
+}
